@@ -6,11 +6,28 @@ public class Game {
 
 	private Long seed;
 	private Level level;
-	public Player player;
+	private Player player;
 	
 	public Game (Long Seed, Level level) { 
 		this.seed = seed;
 		this.level = level;
+	}
+	
+	public static Player getPlayer(Game game) {
+		
+		return game.player;
+	}
+	
+	public int getRoadWidth() {
+		return this.level.getWidth();
+	}
+	
+	public String positionToString(int x, int y) {
+		return "x " + "y";
+	}
+	
+	public int getVisibility() {
+		return this.level.getVisibility();
 	}
 	
 	public boolean checkEnd(){

@@ -2,7 +2,9 @@ package es.ucm.tp1.control;
 
 import java.util.Scanner;
 
-import es.ucm.tp1.logic.*;
+import es.ucm.tp1.logic.Game;
+import es.ucm.tp1.view.GamePrinter;
+import es.ucm.tp1.logic.Player;
 
 public class Controller {
 
@@ -27,50 +29,59 @@ public class Controller {
 	private Game game;
 
 	private Scanner scanner;
+	
+	private GamePrinter printer;
 
 	public Controller(Game game, Scanner scanner) {
 		this.game = game;
 		this.scanner = scanner;
+		this.printer = new GamePrinter(game);
 	}
 
 	public void printGame() {
-		System.out.println(game);
+		System.out.println(printer);
 	}
 	
+
+	public void printEndMessage() {
+		System.out.println(printer.endMessage());
+	}
+
 	public void run() {
+		System.out.println(PROMPT);
 		switch(scanner.next()) {
 		case "h":
-			System.out.println("Available commands:\n"+"[h]elp: show this help\n"+"[i]nfo: prints gameobjet info\n" + "[n]one | []: update\n" + "[q]: go up\n" + "[a]: go down\n" + "[e]xit: exit game\n" + "[r]eset: reset game\n" + "[t]est: enables test mode\n");
+			System.out.println(HELP);
 			break;
 		case "i":
 			//print coinList & print obstacleList
 			break;
 		case "n":
-			Player.forward(game.player);
-			//para que funcione he puesto game.player público pero intuyo que está mal
+			Player.forward(Game.getPlayer(game));
 			break;
 		case "":
-			Player.forward(game.player);
+			Player.forward(Game.getPlayer(game));
 			break;
 		case "q":
-			Player.dodge(game.player, 1);
+			Player.dodge(Game.getPlayer(game), 1);
 			break;
 		case "a":
-			Player.dodge(game.player, -1);
+			Player.dodge(Game.getPlayer(game), -1);
 			break;
 		case "e":
 			System.exit(0);
 			break;
 		case "r":
+			//TODO
 			break;
 		case "t":
 			Game.toggleTest();
 			break;
 			default:
+				System.out.println(UNKNOWN_COMMAND_MSG);
 				Game.update();
 				break;
-				
+		//printGame();
 		}
 	}
-
 }

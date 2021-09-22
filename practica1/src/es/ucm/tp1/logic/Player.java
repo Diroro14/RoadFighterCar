@@ -18,6 +18,8 @@ public class Player {
 		this.resistance = resistance;
 	}
 	
+
+	
 	public static void forward(Player player) {
 		player.x = player.x +1;
 	}

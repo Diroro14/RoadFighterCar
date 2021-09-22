@@ -24,14 +24,6 @@ public enum Level {
 
 	// TODO fill your code
 
-	private static void update(Level level){
-		//TODO
-	}
-	
-	private static void removeDeadObjects(Level level){
-		//TODO
-	}
-	
 	public static Level valueOfIgnoreCase(String inputString) {
 		for (Level level : Level.values()) {
 			if (level.name().equalsIgnoreCase(inputString)) {
@@ -52,5 +44,15 @@ public enum Level {
 			levelCount++;
 		}
 		return buffer.toString();
+	}
+	
+
+	public int getVisibility() {
+		return this.visibility;
+	}
+
+
+	public int getWidth() {
+		return this.width;
 	}
 }
