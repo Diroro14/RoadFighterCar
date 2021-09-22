@@ -1,15 +1,16 @@
 package es.ucm.tp1.view;
 
 import es.ucm.tp1.utils.StringUtils;
+import es.ucm.tp1.control.Level;
 import es.ucm.tp1.logic.Game;
 
 public class GamePrinter {
 
 	private static final String SPACE = " ";
 
-	private static final String ROAD_BORDER_PATTERN = "═";
+	private static final String ROAD_BORDER_PATTERN = "â•�";
 
-	private static final String LANE_DELIMITER_PATTERN = "─";
+	private static final String LANE_DELIMITER_PATTERN = "â�€";
 
 	private static final int CELL_SIZE = 7;
 
@@ -50,6 +51,10 @@ public class GamePrinter {
 		// TODO fill your code
 	}
 
+	public void draw(Level level){
+		//TODO
+	}
+	
 	@Override
 	public String toString() {
 		encodeGame(game);

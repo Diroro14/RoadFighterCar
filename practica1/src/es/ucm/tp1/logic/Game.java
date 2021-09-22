@@ -1,21 +1,25 @@
 package es.ucm.tp1.logic;
 
-import es.ucm.tp1.control.Level;;
+import es.ucm.tp1.control.Level;
 
 public class Game {
 
-	long gameSeed;
-	Level gameLevel;
-	Player player;
+	private Long seed;
+	private Level level;
+	public Player player;
 	
-	public Game (Long seed, Level level) { 
-		gameSeed = seed;
-		gameLevel = level;
+	public Game (Long Seed, Level level) { 
+		this.seed = seed;
+		this.level = level;
 	}
 	
-	private static void update() {
-		
-		
+	public boolean checkEnd(){
+		//TODO
+		return true;
+	}
+	
+	public static void update() {
+		//TODO
 	}
 	
 	public static void toggleTest() {
